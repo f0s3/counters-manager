@@ -1,13 +1,13 @@
 import { Router } from "express"
-import fs from "fs"
+import login from "./login"
+import logout from "./logout"
+import services from "./services"
 
 const router = Router()
 
-for (const filename of fs.readdirSync("./")) {
-	const { name, router } = require(filename)
-	router.use(name, router)
-}
+router.use("/login", login)
+router.use("/logout", logout)
+router.use("/services", services)
 
 export default router
-
 
