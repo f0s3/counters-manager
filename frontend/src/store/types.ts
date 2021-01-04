@@ -10,6 +10,7 @@ export interface User {
 export interface Service {
 	id: number
 	name: string
+	unitType: string
 	history: Counter[]
 }
 

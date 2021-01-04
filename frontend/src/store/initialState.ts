@@ -6,11 +6,13 @@ export const state: Store = {
 		{
 			id: 0,
 			name: "Обленерго",
-			history: [{ value: 15, date: new Date() }]
+			unitType: "кВт",
+			history: [{ value: 225, date: new Date() }]
 		},
 		{
 			id: 1,
 			name: "Водоканал",
+			unitType: "л",
 			history: [{ value: 25, date: new Date() }]
 		}
 	]
