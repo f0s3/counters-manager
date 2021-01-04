@@ -6,18 +6,20 @@ const router = Router()
 const basePath = "/"
 
 router.route(basePath)
-	// TODO: GET:/api/services // get list of all services
+	// GET:/api/services // get list of all services
 	.get((req, res) => {
 		db.connect()
 
-		const query = "SELECT * FROM Users"
+		const userId = 1 // todo pass me
 
-		db.query(query, (err, res) => {
-			if (err) throw err
-			console.log(res, ' is the result')
+		const query = `SELECT * FROM users u INNER JOIN users_services us ON u.id = us.user_id INNER JOIN services s ON s.id = us.service_id INNER JOIN counter_values cv ON cv.service_id = us.service_id AND u.id = cv.user_id WHERE u.id = ${userId}`
+		console.log(query)
+		db.query(query, (err, result) => {
+			if (err) throw err;
+			res.send(result.rows)
 			db.end()
 		})
-		res.send({route: "api/services"})
+		
 	})
 	// TODO: POST:/api/services // add service
 	.post((req, res) => res.status(200).send({route: "api/services"}))
