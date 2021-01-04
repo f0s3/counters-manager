@@ -1,10 +1,16 @@
 export interface Store {
 	user?: User
+	tokenId?: string
 	services: Service[]
 }
 
-export interface User {
-	// TODO
+export interface User  {
+	googleId: string
+	imageUrl: string
+	email: string
+	name: string
+	givenName: string
+	familyName: string
 }
 
 export interface Service {
@@ -25,7 +31,8 @@ export const ADD_SERVICE = "ADD_SERVICE"
 
 export interface LoginAction {
 	type: typeof LOGIN
-	user: "user"
+	user: User
+	tokenId: string
 }
 
 export interface LogoutAction {

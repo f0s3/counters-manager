@@ -2,6 +2,7 @@ import { Store } from "./types"
 
 export const state: Store = {
 	user: undefined,
+	tokenId: undefined,
 	services: [
 		{
 			id: 0,

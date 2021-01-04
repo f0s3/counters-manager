@@ -1,9 +1,10 @@
-import { LoginAction, LogoutAction, LOGIN, LOGOUT } from "./types"
+import { User, LoginAction, LogoutAction, LOGIN, LOGOUT } from "./types"
 
-export function login(user: "user"): LoginAction {
+export function login(user: User, tokenId: string): LoginAction {
 	return {
 		type: LOGIN,
-		user
+		user,
+		tokenId
 	}
 }
 
