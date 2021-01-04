@@ -1,9 +1,4 @@
-import type { ReactNode } from "react"
-
-interface HomeProps {
-	children?: ReactNode
-}
-
-export function Home({ children }: HomeProps) {
-	return <h1>{children}</h1>
+import { ServiceList } from "./ServiceList"
+export function Home() {
+	return <ServiceList />
 }

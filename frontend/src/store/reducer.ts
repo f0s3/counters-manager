@@ -1,13 +1,16 @@
 import { state as initialState } from "./initialState"
-import { ActionTypes, LOGIN, LOGOUT } from "./types"
+import { Store, ActionTypes, LOGIN, LOGOUT, ADD_SERVICE } from "./types"
 
-export function reducer(state = initialState, action: ActionTypes ) {
+export function reducer(state = initialState, action: ActionTypes): Store {
 	switch(action.type) {
 		case LOGIN:
-			return { user: action.user }
+			return { ...state, user: action.user }
 
 		case LOGOUT:
-			return { user: undefined }
+			return { ...state, user: undefined }
+
+		case ADD_SERVICE:
+			return { ...state, services: [ ...state.services, action.service ] }
 
 		default:
 			return state

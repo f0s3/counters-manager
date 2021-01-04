@@ -1,0 +1,20 @@
+.service-card {
+	margin: 5%;
+	padding: 3%;
+	border-radius: 15px;
+	border: 1px solid black;
+}
+
+.service-card .controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.service-card .send {
+	text-decoration: none;
+	background: aqua;
+	color: white;
+	padding: 2%;
+	margin: 2%;
+}
