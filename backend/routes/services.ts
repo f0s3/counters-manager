@@ -1,4 +1,5 @@
 import { Router } from "express"
+import db from "../database"
 
 const router = Router()
 
@@ -6,7 +7,18 @@ const basePath = "/"
 
 router.route(basePath)
 	// TODO: GET:/api/services // get list of all services
-	.get((req, res) => res.send({route: "api/services"}))
+	.get((req, res) => {
+		db.connect()
+
+		const query = "SELECT * FROM Users"
+
+		db.query(query, (err, res) => {
+			if (err) throw err
+			console.log(res, ' is the result')
+			db.end()
+		})
+		res.send({route: "api/services"})
+	})
 	// TODO: POST:/api/services // add service
 	.post((req, res) => res.status(200).send({route: "api/services"}))
 
