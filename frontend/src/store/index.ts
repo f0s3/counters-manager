@@ -1,4 +1,12 @@
-import { createStore } from "redux"
-import { reducer } from "./reducer"
+import { configureStore } from "@reduxjs/toolkit"
+import reducer, { RootState } from "./slices"
+import 'react-redux';
 
-export const store = createStore(reducer);
+declare module 'react-redux' {
+  interface DefaultRootState extends RootState {}
+} 
+
+export const store = configureStore({
+  reducer: reducer,
+  devTools: true
+})

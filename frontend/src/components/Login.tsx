@@ -1,5 +1,5 @@
 import { /*useSelector,*/ useDispatch } from "react-redux"
-import { login } from "../store/actions"
+import { login } from "../store/slices/user"
 import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from "react-google-login"
 import "../styles/Login.css"
 
@@ -12,7 +12,10 @@ export function Login() {
 	const onSuccess = (response: GoogleLoginResponse | GoogleLoginResponseOffline) => {
 		if (!isGoogleLoginResponse(response)) return
 		const { profileObj, tokenId } = response
-		dispatch(login(profileObj, tokenId))
+		dispatch(login({
+			user: profileObj,
+			tokenId
+		}))
 	}
 
 	const onFailure = (reason: any) => {

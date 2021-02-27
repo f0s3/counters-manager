@@ -1,6 +1,5 @@
 import { useParams, Redirect } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { Store } from "../store/types"
 import "../styles/History.css"
 const months = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"]
 
@@ -10,7 +9,7 @@ interface Params {
 
 export function History() {
 	const id = parseInt(useParams<Params>().id)
-	const services = useSelector(({ services }: Store) => services)
+	const services = useSelector(({ services }) => services)
 	const currentService = services.find(service => service.id === id)
 	if (!currentService) return <Redirect to="/" />
 	const { name, unitType, history } = currentService

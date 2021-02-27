@@ -1,10 +1,9 @@
-import type { Store } from "../store/types"
 import { useSelector } from "react-redux"
 import { ServiceCard } from "./ServiceCard"
 
 
 export function ServiceList() {
-	const services = useSelector(({ services }: Store) => services)
+	const services = useSelector(({ services }) => services)
 	
 	return (
 		<div>
