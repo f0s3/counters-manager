@@ -1,1 +1,4 @@
-bacakend/node_modules
+*/node_modules
+*.sublime-project
+*.sublime-workspace
+*/pnpm-lock.yaml
