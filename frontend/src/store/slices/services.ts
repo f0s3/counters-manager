@@ -14,7 +14,7 @@ export interface ServiceAction {
 
 export interface Counter {
   value: number
-  date: Date
+  date: number
 }
 
 const tempServices = [
@@ -22,13 +22,13 @@ const tempServices = [
     id: 0,
     name: "Обленерго",
     unitType: "кВт",
-    history: [{ value: 225, date: new Date() }]
+    history: [{ value: 225, date: Date.now() }]
   },
   {
     id: 1,
     name: "Водоканал",
     unitType: "л",
-    history: [{ value: 25, date: new Date() }]
+    history: [{ value: 25, date: Date.now() }]
   }
 ]
 
