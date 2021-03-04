@@ -9,6 +9,8 @@ import { Home } from "./Home"
 import { History } from "./History"
 import { Login } from "./Login"
 import { googleClientId, loginOnSuccess } from "../services/googleLogin"
+import { Loader } from "./Loader"
+import "../styles/App.css"
 
 export function App() {
 	const user = useSelector(({ user }) => user.user)
@@ -21,7 +23,7 @@ export function App() {
 	})
 
 	if (!loaded)
-		return <h1>Zdarova Tvarina</h1>
+		return <Loader />
 
 	if (!user)
 		return <Login />
